@@ -1,6 +1,7 @@
 
 ## Read in data
-myData <- read.table("household_power_consumption.txt", header=TRUE, sep = ";", na.strings="?")
+myData <- read.table("household_power_consumption.txt", header=TRUE, sep = ";", 
+                     na.strings="?")
 
 ## Process date and time fields
 myData$DateTime <- paste(myData$Date, myData$Time)
@@ -21,7 +22,7 @@ with(myDataSub, {
          xlab = "", ylab = "Global Active Power")
     
     # Subplot 2
-    plot(DateTime, Voltage, type = "l")
+    plot(DateTime, Voltage, type = "l", xlab = "datetime")
     
     # Subplot 3
     plot(DateTime, Sub_metering_1, xlab = "", ylab = "Energy sub metering", type = "n")
@@ -32,7 +33,7 @@ with(myDataSub, {
            legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
     
     # Subplot 4
-    plot(DateTime, Global_reactive_power, type = "l")
+    plot(DateTime, Global_reactive_power, type = "l", xlab = "datetime")
 })
 
 dev.off()
